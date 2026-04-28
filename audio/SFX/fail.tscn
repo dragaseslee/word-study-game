@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://dsd8j1cel2tns"]
+
+[ext_resource type="AudioStream" uid="uid://s3de17oq3pnh" path="res://asserts/sounds/fail.mp3" id="1_togp0"]
+
+[node name="FailSFX" type="AudioStreamPlayer2D" unique_id=665716584]
+stream = ExtResource("1_togp0")
+volume_db = -5.0
+bus = &"SFX"
+parameters/looping = true

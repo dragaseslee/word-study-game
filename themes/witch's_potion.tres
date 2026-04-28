@@ -1,0 +1,193 @@
+[gd_resource type="Theme" format=3 uid="uid://ivxxbefsd1km"]
+
+[ext_resource type="Texture2D" uid="uid://d3w42mxxuuv5e" path="res://asserts/panels/dropdown_focus.png" id="1_pfjox"]
+[ext_resource type="FontFile" uid="uid://djifmsymw047r" path="res://asserts/fonts/AaManHuaJia-2.ttf" id="1_stevi"]
+[ext_resource type="Texture2D" uid="uid://bobsvkwl236qm" path="res://asserts/panels/dropdown_normal.png" id="2_swt1n"]
+[ext_resource type="Texture2D" uid="uid://brg0436vc0yxs" path="res://asserts/panels/dropdown_panel.png" id="3_swt1n"]
+[ext_resource type="Texture2D" uid="uid://v8exoojvmtm0" path="res://asserts/panels/information_panel.png" id="5_8hdhi"]
+[ext_resource type="Texture2D" uid="uid://ctakfxeqjilpo" path="res://asserts/someUI.png" id="5_78igx"]
+[ext_resource type="Texture2D" uid="uid://ch1l7q7x3qxnc" path="res://asserts/panels/player_panel.png" id="5_bqlds"]
+[ext_resource type="Texture2D" uid="uid://b2tbsqahp3sq" path="res://asserts/buttons/button_general.png" id="7_p6fyj"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_78igx"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8hdhi"]
+
+[sub_resource type="DPITexture" id="DPITexture_pfjox"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_stevi"]
+content_margin_left = 40.0
+content_margin_top = 10.0
+content_margin_bottom = 10.0
+texture = ExtResource("1_pfjox")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_78igx"]
+content_margin_left = 40.0
+content_margin_top = 10.0
+content_margin_bottom = 10.0
+texture = ExtResource("2_swt1n")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8hdhi"]
+content_margin_left = 40.0
+content_margin_top = 10.0
+content_margin_bottom = 10.0
+texture = ExtResource("1_pfjox")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_swt1n"]
+atlas = ExtResource("3_swt1n")
+region = Rect2(54, 409, 319, 76)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bqlds"]
+texture = SubResource("AtlasTexture_swt1n")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_stevi"]
+atlas = ExtResource("3_swt1n")
+region = Rect2(1, 0, 422, 354)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_p6fyj"]
+texture = SubResource("AtlasTexture_stevi")
+texture_margin_left = 37.56574
+texture_margin_top = 46.581512
+texture_margin_right = 35.311787
+texture_margin_bottom = 36.814423
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bqlds"]
+atlas = ExtResource("3_swt1n")
+region = Rect2(1, 0, 422, 354)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gc7bs"]
+texture = SubResource("AtlasTexture_bqlds")
+texture_margin_left = 104.0
+texture_margin_top = 104.0
+texture_margin_right = 104.0
+texture_margin_bottom = 101.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0eify"]
+atlas = ExtResource("5_bqlds")
+region = Rect2(36, 29, 120, 121)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_p6l2m"]
+texture = SubResource("AtlasTexture_0eify")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p6fyj"]
+atlas = ExtResource("5_8hdhi")
+region = Rect2(485, 353, 405, 76)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_t8d1j"]
+content_margin_left = 20.0
+texture = SubResource("AtlasTexture_p6fyj")
+texture_margin_left = 43.46126
+texture_margin_right = 42.059284
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_78igx"]
+atlas = ExtResource("5_78igx")
+region = Rect2(844, 389, 136, 118)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0eify"]
+texture = SubResource("AtlasTexture_78igx")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8hdhi"]
+atlas = ExtResource("5_78igx")
+region = Rect2(446, 387, 140, 122)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_oy4pk"]
+texture = SubResource("AtlasTexture_8hdhi")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t8d1j"]
+atlas = ExtResource("5_78igx")
+region = Rect2(647, 390, 136, 117)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_otp6i"]
+texture = SubResource("AtlasTexture_t8d1j")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oy4pk"]
+atlas = ExtResource("7_p6fyj")
+region = Rect2(839, 77, 678, 217)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dsl12"]
+texture = SubResource("AtlasTexture_oy4pk")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gc7bs"]
+atlas = ExtResource("7_p6fyj")
+region = Rect2(23, 77, 683, 217)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5d1jt"]
+texture = SubResource("AtlasTexture_gc7bs")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p6l2m"]
+atlas = ExtResource("7_p6fyj")
+region = Rect2(838, 384, 681, 221)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_tej4c"]
+texture = SubResource("AtlasTexture_p6l2m")
+
+[resource]
+AvatarEdit/base_type = &"LineEdit"
+AvatarEdit/colors/font_color = Color(0.078431375, 0.003921569, 0.22745098, 1)
+AvatarEdit/colors/font_placeholder_color = Color(0.8392157, 0.65882355, 0.5137255, 1)
+AvatarEdit/colors/font_uneditable_color = Color(0.078431375, 0.003921569, 0.22745098, 1)
+AvatarEdit/colors/selection_color = Color(0.3647059, 0.1254902, 0.54901963, 1)
+AvatarEdit/font_sizes/font_size = 20
+AvatarEdit/fonts/font = ExtResource("1_stevi")
+AvatarEdit/styles/focus = SubResource("StyleBoxEmpty_78igx")
+AvatarEdit/styles/normal = SubResource("StyleBoxEmpty_8hdhi")
+LineEdit/font_sizes/font_size = 32
+LineEdit/fonts/font = ExtResource("1_stevi")
+OptionButton/font_sizes/font_size = 24
+OptionButton/fonts/font = ExtResource("1_stevi")
+OptionButton/icons/arrow = SubResource("DPITexture_pfjox")
+OptionButton/styles/hover = SubResource("StyleBoxTexture_stevi")
+OptionButton/styles/normal = SubResource("StyleBoxTexture_78igx")
+OptionButton/styles/normal_mirrored = SubResource("StyleBoxTexture_78igx")
+OptionButton/styles/pressed = SubResource("StyleBoxTexture_8hdhi")
+PanelTitle/base_type = &"Label"
+PanelTitle/colors/font_color = Color(0.99607843, 0.8745098, 0.24313726, 1)
+PanelTitle/colors/font_outline_color = Color(0.5764706, 0.25882354, 0.011764706, 1)
+PanelTitle/colors/font_shadow_color = Color(0.22745098, 0.03529412, 0.23529412, 1)
+PanelTitle/constants/outline_size = 12
+PanelTitle/constants/shadow_outline_size = 12
+PanelTitle/font_sizes/font_size = 64
+PanelTitle/fonts/font = ExtResource("1_stevi")
+PopupMenu/constants/item_start_padding = 20
+PopupMenu/font_sizes/font_size = 24
+PopupMenu/fonts/font = ExtResource("1_stevi")
+PopupMenu/styles/hover = SubResource("StyleBoxTexture_bqlds")
+PopupMenu/styles/panel = SubResource("StyleBoxTexture_p6fyj")
+PopupPanel/styles/panel = SubResource("StyleBoxTexture_gc7bs")
+TextEdit/font_sizes/font_size = 32
+TextEdit/fonts/font = ExtResource("1_stevi")
+choose_dict/base_type = &"OptionButton"
+function_button/base_type = &"Button"
+function_button/styles/normal = SubResource("StyleBoxTexture_p6l2m")
+information_panel/base_type = &"Panel"
+information_panel/styles/panel = SubResource("StyleBoxTexture_t8d1j")
+layout_button/base_type = &"Button"
+layout_button/styles/hover = SubResource("StyleBoxTexture_0eify")
+layout_button/styles/normal = SubResource("StyleBoxTexture_oy4pk")
+layout_button/styles/pressed = SubResource("StyleBoxTexture_otp6i")
+layout_label/base_type = &"Label"
+layout_label/colors/font_color = Color(0.9764706, 0.7607843, 0.1882353, 1)
+layout_label/colors/font_outline_color = Color(0.34901962, 0.12156863, 0.07058824, 1)
+layout_label/colors/font_shadow_color = Color(0.42745098, 0.13725491, 0.078431375, 1)
+layout_label/constants/outline_size = 5
+layout_label/constants/shadow_offset_x = 0
+layout_label/constants/shadow_offset_y = 2
+layout_label/constants/shadow_outline_size = 4
+layout_label/font_sizes/font_size = 42
+layout_label/fonts/font = ExtResource("1_stevi")
+main_button/base_type = &"Button"
+main_button/colors/font_color = Color(0.99215686, 0.8666667, 0.6745098, 1)
+main_button/colors/font_outline_color = Color(0.28235295, 0.1254902, 0.32941177, 1)
+main_button/constants/outline_size = 4
+main_button/font_sizes/font_size = 24
+main_button/fonts/font = ExtResource("1_stevi")
+main_button/styles/hover = SubResource("StyleBoxTexture_dsl12")
+main_button/styles/normal = SubResource("StyleBoxTexture_5d1jt")
+main_button/styles/pressed = SubResource("StyleBoxTexture_tej4c")
+rule_setting/base_type = &"SpinBox"
+section_title/base_type = &"Label"
+section_title/colors/font_color = Color(0.99215686, 0.8666667, 0.6745098, 1)
+section_title/colors/font_shadow_color = Color(0.20784314, 0.047058824, 0.16470589, 1)
+section_title/constants/shadow_outline_size = 12
+section_title/font_sizes/font_size = 48
+section_title/fonts/font = ExtResource("1_stevi")

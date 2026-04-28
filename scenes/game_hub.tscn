@@ -1,0 +1,162 @@
+[gd_scene format=3 uid="uid://vkfmbxyf6lr0"]
+
+[ext_resource type="Script" uid="uid://qhfvdl8xul52" path="res://scripts/game_hub.gd" id="1_hub"]
+[ext_resource type="Texture2D" uid="uid://b7775wlgpbtij" path="res://asserts/background/background.png" id="2_fhvhg"]
+[ext_resource type="Shader" uid="uid://cxce5yprdg2hi" path="res://shaders/blur.gdshader" id="2_uojgr"]
+[ext_resource type="Texture2D" uid="uid://0bxyjdwl51eg" path="res://asserts/panels/Title.png" id="3_qc3sx"]
+[ext_resource type="Texture2D" uid="uid://c8si4ek4sdc25" path="res://asserts/buttons/button_witch's_potion.png" id="3_r5mdd"]
+[ext_resource type="Texture2D" uid="uid://dxgxndyj6y2x5" path="res://asserts/buttons/button_word_match.png" id="4_cuhvu"]
+[ext_resource type="Texture2D" uid="uid://c770b34103qdq" path="res://asserts/buttons/button_word_pick.png" id="7_aq8e4"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_aq8e4"]
+shader = ExtResource("2_uojgr")
+shader_parameter/blur_strength = 2.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qc3sx"]
+atlas = ExtResource("3_qc3sx")
+region = Rect2(162, 295, 1211, 259)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uojgr"]
+atlas = ExtResource("3_r5mdd")
+region = Rect2(148, 99, 1278, 719)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aq8e4"]
+atlas = ExtResource("4_cuhvu")
+region = Rect2(100, 83, 1343, 763)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e1f5i"]
+atlas = ExtResource("7_aq8e4")
+region = Rect2(139, 162, 1239, 649)
+
+[node name="GameHub" type="Control" unique_id=849832347]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_hub")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=812305138]
+material = SubResource("ShaderMaterial_aq8e4")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_fhvhg")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=333405541]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 100
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 77
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1735442617]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Title" type="MarginContainer" parent="MarginContainer/VBoxContainer" unique_id=140060738]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 1.3
+
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="MarginContainer/VBoxContainer/Title" unique_id=453544067]
+layout_mode = 2
+ratio = 5.0
+
+[node name="TitlePicture" type="TextureRect" parent="MarginContainer/VBoxContainer/Title/AspectRatioContainer" unique_id=646087066]
+layout_mode = 2
+texture = SubResource("AtlasTexture_qc3sx")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="GamesPanel" type="MarginContainer" parent="MarginContainer/VBoxContainer" unique_id=646368609]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 2.5
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_right = 50
+
+[node name="GridContainer" type="GridContainer" parent="MarginContainer/VBoxContainer/GamesPanel" unique_id=1412864066]
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 4.0
+theme_override_constants/h_separation = 50
+columns = 2
+
+[node name="WitchsPotionPanel" type="Control" parent="MarginContainer/VBoxContainer/GamesPanel/GridContainer" unique_id=619924150]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="MarginContainer/VBoxContainer/GamesPanel/GridContainer/WitchsPotionPanel" unique_id=1735688614]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+ratio = 1.6
+
+[node name="TextureButton" type="TextureButton" parent="MarginContainer/VBoxContainer/GamesPanel/GridContainer/WitchsPotionPanel/AspectRatioContainer" unique_id=1117161649]
+layout_mode = 2
+texture_normal = SubResource("AtlasTexture_uojgr")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="WordMatchPanel" type="Control" parent="MarginContainer/VBoxContainer/GamesPanel/GridContainer" unique_id=1777768880]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="MarginContainer/VBoxContainer/GamesPanel/GridContainer/WordMatchPanel" unique_id=2079763576]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+ratio = 1.6
+
+[node name="TextureButton" type="TextureButton" parent="MarginContainer/VBoxContainer/GamesPanel/GridContainer/WordMatchPanel/AspectRatioContainer" unique_id=1348209835]
+layout_mode = 2
+texture_normal = SubResource("AtlasTexture_aq8e4")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="WordPicPick" type="Control" parent="MarginContainer/VBoxContainer/GamesPanel/GridContainer" unique_id=1158682749]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="MarginContainer/VBoxContainer/GamesPanel/GridContainer/WordPicPick" unique_id=1300533687]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+ratio = 1.6
+
+[node name="TextureButton" type="TextureButton" parent="MarginContainer/VBoxContainer/GamesPanel/GridContainer/WordPicPick/AspectRatioContainer" unique_id=1072869221]
+layout_mode = 2
+texture_normal = SubResource("AtlasTexture_e1f5i")
+ignore_texture_size = true
+stretch_mode = 5

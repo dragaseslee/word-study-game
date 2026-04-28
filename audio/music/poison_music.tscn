@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://b3v87n88r0s74"]
+
+[ext_resource type="AudioStream" uid="uid://x8o5uvyhdpcs" path="res://asserts/sounds/music.mp3" id="1_5e0ds"]
+
+[node name="PoisonMusic" type="AudioStreamPlayer2D" unique_id=665716584]
+stream = ExtResource("1_5e0ds")
+bus = &"Music"
+parameters/looping = true

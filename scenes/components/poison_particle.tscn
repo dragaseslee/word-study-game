@@ -1,0 +1,71 @@
+[gd_scene format=3 uid="uid://cyfnr8814qksj"]
+
+[ext_resource type="Texture2D" uid="uid://d01xw3cccqh6o" path="res://asserts/effects/poison_item.png" id="1_5ltu8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x6ecg"]
+atlas = ExtResource("1_5ltu8")
+region = Rect2(18, 133, 125, 118)
+
+[sub_resource type="Curve" id="Curve_2k5r8"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.1184573, 0), 0.0, 0.0, 0, 0, Vector2(0.30853993, 1), 0.0, 0.0, 0, 0, Vector2(0.6115703, 1), 0.0, 0.0, 0, 0, Vector2(0.76859504, 0.46767235), -6.454201, -6.454201, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 6
+
+[sub_resource type="CurveTexture" id="CurveTexture_6pvs2"]
+curve = SubResource("Curve_2k5r8")
+
+[sub_resource type="Curve" id="Curve_bwgbv"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.4573003, 0.5026939), 1.8161176, 1.8161176, 0, 0, Vector2(0.7741047, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_umj4n"]
+curve = SubResource("Curve_bwgbv")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_jd5mo"]
+particle_flag_disable_z = true
+spread = 0.0
+angular_velocity_min = 75.40998
+angular_velocity_max = 75.40998
+orbit_velocity_min = 9.49949e-08
+orbit_velocity_max = 0.47900012
+gravity = Vector3(0, 0, 0)
+damping_min = 7.7310004
+damping_max = 7.7310004
+scale_min = 4.0
+scale_max = 4.0
+scale_curve = SubResource("CurveTexture_umj4n")
+alpha_curve = SubResource("CurveTexture_6pvs2")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_icfi2"]
+atlas = ExtResource("1_5ltu8")
+region = Rect2(543, 292, 71, 76)
+
+[sub_resource type="CurveTexture" id="CurveTexture_5ltu8"]
+curve = SubResource("Curve_2k5r8")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_eo6dx"]
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(3, 3, 3)
+emission_shape = 1
+emission_sphere_radius = 20.0
+spread = 180.0
+gravity = Vector3(0, 0, 0)
+tangential_accel_min = 64.34
+tangential_accel_max = 99.99999
+damping_min = 4.4890003
+damping_max = 4.4890003
+alpha_curve = SubResource("CurveTexture_5ltu8")
+
+[node name="Node2D" type="Node2D" unique_id=518039208]
+
+[node name="PoisonSmoke" type="GPUParticles2D" parent="." unique_id=574954016]
+amount = 1
+texture = SubResource("AtlasTexture_x6ecg")
+lifetime = 2.0
+process_material = SubResource("ParticleProcessMaterial_jd5mo")
+
+[node name="PoisonIcon" type="GPUParticles2D" parent="." unique_id=867035675]
+amount = 6
+texture = SubResource("AtlasTexture_icfi2")
+lifetime = 2.0
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_eo6dx")

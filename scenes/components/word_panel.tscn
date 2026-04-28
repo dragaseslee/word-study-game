@@ -1,0 +1,72 @@
+[gd_scene format=3 uid="uid://bg5q77i8cissf"]
+
+[ext_resource type="Texture2D" uid="uid://j5x1kl3sn7yh" path="res://asserts/panels/word_panel.png" id="1_mrhc7"]
+[ext_resource type="Theme" uid="uid://ivxxbefsd1km" path="res://themes/witch's_potion.tres" id="2_uhoel"]
+[ext_resource type="PackedScene" uid="uid://d4i12sqy6fc2a" path="res://scenes/components/normal_particle.tscn" id="3_mv27k"]
+[ext_resource type="PackedScene" uid="uid://cyfnr8814qksj" path="res://scenes/components/poison_particle.tscn" id="4_wcvj8"]
+[ext_resource type="PackedScene" uid="uid://dsd8j1cel2tns" path="res://audio/SFX/fail.tscn" id="5_cark8"]
+[ext_resource type="Script" uid="uid://4aprak0c1f4" path="res://scripts/word_label_fit.gd" id="5_dni5o"]
+[ext_resource type="PackedScene" uid="uid://bl8fnnjwi4fvp" path="res://audio/SFX/success.tscn" id="6_dni5o"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uhoel"]
+atlas = ExtResource("1_mrhc7")
+region = Rect2(460, 293, 88, 81)
+
+[node name="WordPanel" type="MarginContainer" unique_id=153824402]
+custom_minimum_size = Vector2(150, 150)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="CardRoot" type="Control" parent="." unique_id=110572283]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="TextureRect" type="TextureRect" parent="CardRoot" unique_id=910572283]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("AtlasTexture_uhoel")
+expand_mode = 1
+
+[node name="WhiteBurst" parent="CardRoot" unique_id=518039208 instance=ExtResource("3_mv27k")]
+visible = false
+
+[node name="BlackBurst" parent="CardRoot" unique_id=1206010038 instance=ExtResource("4_wcvj8")]
+visible = false
+
+[node name="Label" type="Label" parent="CardRoot" unique_id=1204709225]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_uhoel")
+theme_type_variation = &"layout_label"
+text = "Text"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+clip_text = true
+script = ExtResource("5_dni5o")
+
+[node name="Node2D" type="Node2D" parent="." unique_id=1822966774]
+
+[node name="FailSFX" parent="Node2D" unique_id=665716584 instance=ExtResource("5_cark8")]
+
+[node name="SuccessSFX" parent="Node2D" unique_id=1741582686 instance=ExtResource("6_dni5o")]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Node2D" unique_id=288962937]

@@ -1,0 +1,202 @@
+[gd_scene format=3 uid="uid://cgnq0kle3guia"]
+
+[ext_resource type="Script" uid="uid://cmcbddj1itiae" path="res://scripts/word_poison_game.gd" id="1_game"]
+[ext_resource type="Texture2D" uid="uid://bnufn518uq1rg" path="res://asserts/panels/game_panel_background.png" id="2_tor6p"]
+[ext_resource type="Theme" uid="uid://ivxxbefsd1km" path="res://themes/witch's_potion.tres" id="4_3ehs6"]
+[ext_resource type="Script" uid="uid://cqyvxuwhjfqfl" path="res://scripts/gameplay_panel.gd" id="4_play"]
+[ext_resource type="PackedScene" uid="uid://b4iwib61ryqwf" path="res://scenes/components/life_value_item.tscn" id="4_u23q4"]
+[ext_resource type="Texture2D" uid="uid://ch1l7q7x3qxnc" path="res://asserts/panels/player_panel.png" id="6_3ehs6"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sir8r"]
+atlas = ExtResource("6_3ehs6")
+region = Rect2(35, 200, 577, 550)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3ehs6"]
+atlas = ExtResource("6_3ehs6")
+region = Rect2(236, 786, 1094, 175)
+
+[node name="WordPoisonGame" type="Control" unique_id=82349083]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("4_3ehs6")
+script = ExtResource("1_game")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1175491971]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1599633457]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_tor6p")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1983262438]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_top = 100
+theme_override_constants/margin_right = 100
+theme_override_constants/margin_bottom = 100
+
+[node name="GameMainPanel" type="VBoxContainer" parent="MarginContainer" unique_id=1183900870]
+layout_mode = 2
+
+[node name="GameplayPanel" type="HBoxContainer" parent="MarginContainer/GameMainPanel" unique_id=998942359]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 9.0
+theme_override_constants/separation = 18
+script = ExtResource("4_play")
+
+[node name="Player1Panel" type="MarginContainer" parent="MarginContainer/GameMainPanel/GameplayPanel" unique_id=2001981011]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+
+[node name="BoardArea" type="VBoxContainer" parent="MarginContainer/GameMainPanel/GameplayPanel/Player1Panel" unique_id=1581333470]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 10
+
+[node name="Player1PLifeInfo" type="MarginContainer" parent="MarginContainer/GameMainPanel/GameplayPanel/Player1Panel/BoardArea" unique_id=1392540141]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 50
+
+[node name="LifeBox" type="HBoxContainer" parent="MarginContainer/GameMainPanel/GameplayPanel/Player1Panel/BoardArea/Player1PLifeInfo" unique_id=799017653]
+layout_mode = 2
+
+[node name="PlayerName1" type="Label" parent="MarginContainer/GameMainPanel/GameplayPanel/Player1Panel/BoardArea/Player1PLifeInfo/LifeBox" unique_id=1828136384 unique_name_in_owner=true]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+theme = ExtResource("4_3ehs6")
+theme_type_variation = &"section_title"
+text = ""
+
+[node name="LifeValueItem" parent="MarginContainer/GameMainPanel/GameplayPanel/Player1Panel/BoardArea/Player1PLifeInfo/LifeBox" unique_id=1119677480 instance=ExtResource("4_u23q4")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="GamerPanelCenter" type="MarginContainer" parent="MarginContainer/GameMainPanel/GameplayPanel/Player1Panel/BoardArea" unique_id=1402142902]
+custom_minimum_size = Vector2(600, 600)
+layout_mode = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="PlayerPanel" type="TextureRect" parent="MarginContainer/GameMainPanel/GameplayPanel/Player1Panel/BoardArea/GamerPanelCenter" unique_id=712602463]
+layout_mode = 2
+texture = SubResource("AtlasTexture_sir8r")
+
+[node name="CenterContainer" type="CenterContainer" parent="MarginContainer/GameMainPanel/GameplayPanel/Player1Panel/BoardArea/GamerPanelCenter" unique_id=1782206808]
+layout_mode = 2
+
+[node name="BoardGrid1" type="GridContainer" parent="MarginContainer/GameMainPanel/GameplayPanel/Player1Panel/BoardArea/GamerPanelCenter/CenterContainer" unique_id=2068137573]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/h_separation = 8
+theme_override_constants/v_separation = 8
+columns = 4
+
+[node name="Player2Panel" type="MarginContainer" parent="MarginContainer/GameMainPanel/GameplayPanel" unique_id=1001981012]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+
+[node name="BoardArea" type="VBoxContainer" parent="MarginContainer/GameMainPanel/GameplayPanel/Player2Panel" unique_id=1581333471]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 10
+
+[node name="Player2PLifeInfo" type="MarginContainer" parent="MarginContainer/GameMainPanel/GameplayPanel/Player2Panel/BoardArea" unique_id=850249628]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_right = 50
+
+[node name="LifeBox" type="HBoxContainer" parent="MarginContainer/GameMainPanel/GameplayPanel/Player2Panel/BoardArea/Player2PLifeInfo" unique_id=1110965410]
+layout_mode = 2
+
+[node name="PlayerName2" type="Label" parent="MarginContainer/GameMainPanel/GameplayPanel/Player2Panel/BoardArea/Player2PLifeInfo/LifeBox" unique_id=410327355 unique_name_in_owner=true]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+theme = ExtResource("4_3ehs6")
+theme_type_variation = &"section_title"
+text = ""
+
+[node name="LifeValueItem" parent="MarginContainer/GameMainPanel/GameplayPanel/Player2Panel/BoardArea/Player2PLifeInfo/LifeBox" unique_id=1772042413 instance=ExtResource("4_u23q4")]
+layout_mode = 2
+
+[node name="GamerPanelCenter" type="MarginContainer" parent="MarginContainer/GameMainPanel/GameplayPanel/Player2Panel/BoardArea" unique_id=1402142903]
+custom_minimum_size = Vector2(600, 600)
+layout_mode = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="PlayerPanel" type="TextureRect" parent="MarginContainer/GameMainPanel/GameplayPanel/Player2Panel/BoardArea/GamerPanelCenter" unique_id=587320157]
+layout_mode = 2
+texture = SubResource("AtlasTexture_sir8r")
+
+[node name="CenterContainer" type="CenterContainer" parent="MarginContainer/GameMainPanel/GameplayPanel/Player2Panel/BoardArea/GamerPanelCenter" unique_id=1782206809]
+layout_mode = 2
+
+[node name="BoardGrid2" type="GridContainer" parent="MarginContainer/GameMainPanel/GameplayPanel/Player2Panel/BoardArea/GamerPanelCenter/CenterContainer" unique_id=2068137574]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/h_separation = 8
+theme_override_constants/v_separation = 8
+columns = 4
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/GameMainPanel" unique_id=1989746213]
+layout_mode = 2
+theme_override_constants/margin_left = 200
+theme_override_constants/margin_right = 200
+theme_override_constants/margin_bottom = 50
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/GameMainPanel/MarginContainer" unique_id=2026141319]
+layout_mode = 2
+texture = SubResource("AtlasTexture_3ehs6")
+
+[node name="Label" type="Label" parent="MarginContainer/GameMainPanel/MarginContainer" unique_id=1275499535]
+layout_mode = 2
+text = "游戏说明：
+1. 两队轮流"
+
+[node name="ReturnButton" type="Button" parent="." unique_id=1596924791]
+layout_mode = 0
+offset_left = 53.0
+offset_top = 40.0
+offset_right = 182.0
+offset_bottom = 169.0
+theme_type_variation = &"function_button"
