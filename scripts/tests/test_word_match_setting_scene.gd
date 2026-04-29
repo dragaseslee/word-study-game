@@ -44,6 +44,10 @@ func _initialize() -> void:
 	controller._on_word_set_selected(selected_index)
 	controller._on_layout_selected(5)
 	controller._on_add_player_pressed()
+	controller._players[0]["name"] = "   "
+	controller._players[0]["score"] = 99
+	controller._players[1]["name"] = "   "
+	controller._players[1]["avatar"] = "ghost"
 	controller._on_player_name_changed("   ", 1)
 	max_errors_spin_box.value = 2
 	controller._update_start_state()
@@ -64,7 +68,12 @@ func _initialize() -> void:
 	_assert(int(startup_config.get("board_size", 0)) == 5, "Startup config should keep the selected board size")
 	var players := startup_config.get("players", []) as Array
 	_assert(players.size() == 2, "Startup config should include both players")
+	_assert(String((players[0] as Dictionary).get("name", "")) == "玩家1", "Startup config should normalize blank player names")
 	_assert(String((players[1] as Dictionary).get("name", "")) == "玩家2", "Startup config should normalize blank player names")
+	_assert(int((players[0] as Dictionary).get("id", -1)) == 0, "Startup config should reindex player ids from the builder")
+	_assert(int((players[1] as Dictionary).get("id", -1)) == 1, "Startup config should reindex player ids from the builder")
+	_assert(not (players[0] as Dictionary).has("score"), "Startup config should strip unexpected player fields")
+	_assert(not (players[1] as Dictionary).has("avatar"), "Startup config should strip unexpected player fields")
 	var rules := startup_config.get("rules", {}) as Dictionary
 	_assert(int(rules.get("max_errors", -1)) == 2, "Startup config should keep the selected allowed mistakes")
 
