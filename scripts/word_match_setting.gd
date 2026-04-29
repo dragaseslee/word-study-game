@@ -198,7 +198,7 @@ func _update_start_state() -> void:
 		status_text = "暂无可用词表，请先导入词表"
 		can_start = false
 	elif _selected_word_set.is_empty():
-		status_text = "请选择词表"
+		status_text = "请先选择词表"
 		can_start = false
 	elif int(_selected_word_set.get("word_count", 0)) < _required_pair_count():
 		status_text = "词表词对不足，当前布局至少需要 %d 对" % _required_pair_count()
@@ -228,7 +228,7 @@ func _on_start_pressed() -> void:
 	var startup_config := GameStartupConfig.build_word_match_config(
 		_selected_word_set,
 		_board_size,
-		GameStartupConfig.normalize_players(_players),
+		_players,
 		_max_errors
 	)
 	var next_scene := WORD_MATCH_GAME_SCENE.instantiate()
