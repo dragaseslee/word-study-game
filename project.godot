@@ -19,6 +19,13 @@ config/icon="res://asserts/icon.svg"
 
 buses/default_bus_layout="uid://d2twn1ei15yxv"
 
+[autoload]
+
+GameRegistry="*res://core/autoload/game_registry.gd"
+SceneRouter="*res://core/autoload/scene_router.gd"
+AudioMgr="*res://core/autoload/audio_mgr.gd"
+WordSetStore="*res://core/autoload/word_set_store.gd"
+
 [display]
 
 window/size/viewport_width=1920

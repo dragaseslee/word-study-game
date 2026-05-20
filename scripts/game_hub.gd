@@ -1,14 +1,9 @@
 extends Control
 
-const PoisonMusic = preload("res://scripts/poison_music.gd")
-
 @onready var witchs_potion_panel: Control = $"MarginContainer/VBoxContainer/GamesPanel/GridContainer/WitchsPotionPanel"
 @onready var witchs_potion_button: TextureButton = $"MarginContainer/VBoxContainer/GamesPanel/GridContainer/WitchsPotionPanel/AspectRatioContainer/TextureButton"
 @onready var word_match_panel: Control = $"MarginContainer/VBoxContainer/GamesPanel/GridContainer/WordMatchPanel"
 @onready var word_match_button: TextureButton = $"MarginContainer/VBoxContainer/GamesPanel/GridContainer/WordMatchPanel/AspectRatioContainer/TextureButton"
-
-const WORD_POISON_SCENE := "res://scenes/word_poison_setting.tscn"
-const WORD_MATCH_SETTING_SCENE := "res://scenes/word_match_setting.tscn"
 
 const CARD_NORMAL_SCALE := Vector2.ONE
 const CARD_HOVER_SCALE := Vector2(1.04, 1.04)
@@ -23,7 +18,7 @@ var _card_tweens: Dictionary = {}
 
 
 func _ready() -> void:
-	PoisonMusic.stop(get_tree())
+	AudioMgr.stop_bgm(0.5)
 	_setup_game_card(witchs_potion_panel, witchs_potion_button)
 	_setup_game_card(word_match_panel, word_match_button)
 	witchs_potion_panel.gui_input.connect(_on_witchs_potion_panel_input)
@@ -38,11 +33,11 @@ func _ready() -> void:
 
 
 func _on_witchs_potion_panel_pressed() -> void:
-	get_tree().change_scene_to_file(WORD_POISON_SCENE)
+	SceneRouter.goto_game_setting("word_poison")
 
 
 func _on_word_match_panel_pressed() -> void:
-	get_tree().change_scene_to_file(WORD_MATCH_SETTING_SCENE)
+	SceneRouter.goto_game_setting("word_match")
 
 
 func _on_witchs_potion_panel_input(event: InputEvent) -> void:
