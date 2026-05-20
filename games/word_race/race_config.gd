@@ -4,7 +4,11 @@ extends RefCounted
 const MIN_OPTION_COUNT := 2
 const MAX_OPTION_COUNT := 6
 const DEFAULT_OPTION_COUNT := 3
+const MIN_ROUND_COUNT := 1
+const MAX_ROUND_COUNT := 50
 const DEFAULT_ROUND_COUNT := 10
+const MIN_COOLDOWN := 1.0
+const MAX_COOLDOWN := 10.0
 const DEFAULT_COOLDOWN := 5.0
 
 
@@ -13,11 +17,11 @@ static func normalize_option_count(value: int) -> int:
 
 
 static func normalize_round_count(value: int) -> int:
-    return clampi(value, 1, 50)
+    return clampi(value, MIN_ROUND_COUNT, MAX_ROUND_COUNT)
 
 
 static func normalize_cooldown(value: float) -> float:
-    return clampf(value, 1.0, 10.0)
+    return clampf(value, MIN_COOLDOWN, MAX_COOLDOWN)
 
 
 static func build_config(
