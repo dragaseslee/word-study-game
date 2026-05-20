@@ -3,6 +3,7 @@ extends ViewModel
 
 signal round_finished(winner_index: int)
 signal game_finished
+signal player_cooldown_started(player_index: int)
 
 var _config: Dictionary = {}
 var _selected_word_set: Dictionary = {}
@@ -60,16 +61,16 @@ func on_option_pressed(player_index: int, option_index: int) -> void:
         player["correct_count"] = int(player.get("correct_count", 0)) + 1
         _round_finished = true
         _players[player_index] = player
-        notify_view()
         round_finished.emit(player_index)
+        notify_view()
     else:
         # 答错，进入冷却
         player["is_cooldown"] = true
         player["cooldown_remaining"] = _cooldown_duration
         player["error_count"] = int(player.get("error_count", 0)) + 1
         _players[player_index] = player
+        player_cooldown_started.emit(player_index)
         notify_view()
-        _check_all_cooldown()
 
 
 func on_cooldown_tick(player_index: int) -> void:
@@ -96,8 +97,8 @@ func advance_round() -> void:
     _current_round += 1
     if _current_round >= _total_rounds:
         _game_finished = true
-        notify_view()
         game_finished.emit()
+        notify_view()
         return
     _start_new_round()
 
@@ -172,9 +173,13 @@ func _generate_options(correct_word: Dictionary) -> Array[Dictionary]:
     })
 
     var wrong_words: Array[Dictionary] = []
+    var seen_chinese: Dictionary = {}
+    seen_chinese[String(correct_word.get("chinese", ""))] = true
     for word in _all_words:
-        if String(word.get("english", "")) != String(correct_word.get("english", "")):
+        var chinese := String(word.get("chinese", ""))
+        if String(word.get("english", "")) != String(correct_word.get("english", "")) and not seen_chinese.has(chinese):
             wrong_words.append(word)
+            seen_chinese[chinese] = true
 
     wrong_words.shuffle()
     for i in range(min(_option_count - 1, wrong_words.size())):
@@ -192,13 +197,6 @@ func _find_correct_index() -> int:
         if bool(_options[i].get("is_correct", false)):
             return i
     return -1
-
-
-func _check_all_cooldown() -> void:
-    for player in _players:
-        if not player.get("is_cooldown", false):
-            return
-    # 所有玩家都在冷却中，等待最先冷却结束的玩家
 
 
 func _open_result_scene() -> void:
