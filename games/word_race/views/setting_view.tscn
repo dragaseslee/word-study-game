@@ -92,7 +92,7 @@ unique_name_in_owner = true
 layout_mode = 2
 min_value = 1.0
 max_value = 10.0
-step = 0.5
+step = 1.0
 value = 5.0
 
 [node name="PlayerARow" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
