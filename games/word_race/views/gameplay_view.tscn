@@ -1,0 +1,117 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://games/word_race/views/gameplay_view.gd" id="1_race"]
+
+[node name="WordRaceGameplay" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_race")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 12
+
+[node name="WordLabel" type="Label" parent="VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "等待开始..."
+horizontal_alignment = 1
+
+[node name="RoundLabel" type="Label" parent="VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "回合 0/0"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 12
+
+[node name="PlayerAPanel" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 8
+
+[node name="PlayerATitle" type="Label" parent="VBoxContainer/HBoxContainer/PlayerAPanel"]
+layout_mode = 2
+text = "玩家A"
+horizontal_alignment = 1
+
+[node name="PlayerAScoreLabel" type="Label" parent="VBoxContainer/HBoxContainer/PlayerAPanel"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "得分: 0"
+horizontal_alignment = 1
+
+[node name="PlayerAStatusLabel" type="Label" parent="VBoxContainer/HBoxContainer/PlayerAPanel"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "正常"
+horizontal_alignment = 1
+
+[node name="PlayerAOptionsContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/PlayerAPanel"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 4
+
+[node name="VSeparator" type="VSeparator" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="PlayerBPanel" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 8
+
+[node name="PlayerBTitle" type="Label" parent="VBoxContainer/HBoxContainer/PlayerBPanel"]
+layout_mode = 2
+text = "玩家B"
+horizontal_alignment = 1
+
+[node name="PlayerBScoreLabel" type="Label" parent="VBoxContainer/HBoxContainer/PlayerBPanel"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "得分: 0"
+horizontal_alignment = 1
+
+[node name="PlayerBStatusLabel" type="Label" parent="VBoxContainer/HBoxContainer/PlayerBPanel"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "正常"
+horizontal_alignment = 1
+
+[node name="PlayerBOptionsContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/PlayerBPanel"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 4
+
+[node name="ButtonContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+alignment = 1
+theme_override_constants/separation = 12
+
+[node name="NextRoundButton" type="Button" parent="VBoxContainer/ButtonContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "下一回合"
+visible = false
+
+[node name="EndGameButton" type="Button" parent="VBoxContainer/ButtonContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "查看结果"
+visible = false
