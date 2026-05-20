@@ -31,5 +31,6 @@ func _ready() -> void:
 func _register_builtin_games() -> void:
 	register_game(preload("res://games/word_poison/poison_def.gd").new())
 	register_game(preload("res://games/word_match/match_def.gd").new())
+	register_game(preload("res://games/word_race/race_def.gd").new())
 
 
