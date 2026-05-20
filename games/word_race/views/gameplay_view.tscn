@@ -49,6 +49,12 @@ layout_mode = 2
 text = "玩家A"
 horizontal_alignment = 1
 
+[node name="PlayerANameLabel" type="Label" parent="VBoxContainer/HBoxContainer/PlayerAPanel"]
+unique_name_in_owner = true
+layout_mode = 2
+text = ""
+horizontal_alignment = 1
+
 [node name="PlayerAScoreLabel" type="Label" parent="VBoxContainer/HBoxContainer/PlayerAPanel"]
 unique_name_in_owner = true
 layout_mode = 2
@@ -79,6 +85,12 @@ theme_override_constants/separation = 8
 [node name="PlayerBTitle" type="Label" parent="VBoxContainer/HBoxContainer/PlayerBPanel"]
 layout_mode = 2
 text = "玩家B"
+horizontal_alignment = 1
+
+[node name="PlayerBNameLabel" type="Label" parent="VBoxContainer/HBoxContainer/PlayerBPanel"]
+unique_name_in_owner = true
+layout_mode = 2
+text = ""
 horizontal_alignment = 1
 
 [node name="PlayerBScoreLabel" type="Label" parent="VBoxContainer/HBoxContainer/PlayerBPanel"]

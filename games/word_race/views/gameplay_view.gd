@@ -10,6 +10,8 @@ var _vm: RaceGameplayVM
 @onready var _player_b_score_label: Label = %PlayerBScoreLabel
 @onready var _player_a_status_label: Label = %PlayerAStatusLabel
 @onready var _player_b_status_label: Label = %PlayerBStatusLabel
+@onready var _player_a_name_label: Label = %PlayerANameLabel
+@onready var _player_b_name_label: Label = %PlayerBNameLabel
 @onready var _player_a_options_container: VBoxContainer = %PlayerAOptionsContainer
 @onready var _player_b_options_container: VBoxContainer = %PlayerBOptionsContainer
 @onready var _next_round_button: Button = %NextRoundButton
@@ -67,9 +69,10 @@ func render(view_data: Dictionary) -> void:
     _round_label.text = "回合 %d/%d" % [int(view_data.get("current_round", 1)), int(view_data.get("total_rounds", 10))]
 
     var players: Array = view_data.get("players", [])
+    var options: Array = view_data.get("options", [])
     if players.size() >= 2:
-        _render_player_panel(0, players[0], _player_a_score_label, _player_a_status_label, _player_a_options_container)
-        _render_player_panel(1, players[1], _player_b_score_label, _player_b_status_label, _player_b_options_container)
+        _render_player_panel(0, players[0], options, _player_a_score_label, _player_a_status_label, _player_a_name_label, _player_a_options_container)
+        _render_player_panel(1, players[1], options, _player_b_score_label, _player_b_status_label, _player_b_name_label, _player_b_options_container)
 
     var is_round_finished := bool(view_data.get("round_finished", false))
     var is_game_finished := bool(view_data.get("game_finished", false))
@@ -80,10 +83,13 @@ func render(view_data: Dictionary) -> void:
 func _render_player_panel(
     player_index: int,
     player_data: Dictionary,
+    options: Array,
     score_label: Label,
     status_label: Label,
+    name_label: Label,
     options_container: VBoxContainer
 ) -> void:
+    name_label.text = String(player_data.get("name", ""))
     score_label.text = "得分: %d" % int(player_data.get("score", 0))
 
     var is_cooldown := bool(player_data.get("is_cooldown", false))
@@ -94,15 +100,12 @@ func _render_player_panel(
     else:
         status_label.text = "正常"
 
-    _render_options(options_container, player_index, is_cooldown)
+    _render_options(options_container, player_index, options, is_cooldown)
 
 
-func _render_options(container: VBoxContainer, player_index: int, is_disabled: bool) -> void:
+func _render_options(container: VBoxContainer, player_index: int, options: Array, is_disabled: bool) -> void:
     for child in container.get_children():
         child.queue_free()
-
-    var view_data := _vm.build_view_data()
-    var options: Array = view_data.get("options", [])
 
     for i in range(options.size()):
         var option: Dictionary = options[i]
@@ -132,18 +135,23 @@ func _on_player_cooldown_started(player_index: int) -> void:
         _player_b_cooldown_timer.start()
 
 
-func _on_round_finished(_winner_index: int) -> void:
+func _stop_cooldown_timers() -> void:
     _player_a_cooldown_timer.stop()
     _player_b_cooldown_timer.stop()
+
+
+func _on_round_finished(_winner_index: int) -> void:
+    _stop_cooldown_timers()
     _round_transition_timer.start()
 
 
 func _on_game_finished() -> void:
-    _player_a_cooldown_timer.stop()
-    _player_b_cooldown_timer.stop()
+    _stop_cooldown_timers()
+    _round_transition_timer.stop()
 
 
 func _on_next_round_pressed() -> void:
+    _round_transition_timer.stop()
     _vm.advance_round()
 
 
