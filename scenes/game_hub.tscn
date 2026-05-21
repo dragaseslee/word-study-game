@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://0bxyjdwl51eg" path="res://asserts/panels/Title.png" id="3_qc3sx"]
 [ext_resource type="Texture2D" uid="uid://c8si4ek4sdc25" path="res://asserts/buttons/button_witch's_potion.png" id="3_r5mdd"]
 [ext_resource type="Texture2D" uid="uid://dxgxndyj6y2x5" path="res://asserts/buttons/button_word_match.png" id="4_cuhvu"]
-[ext_resource type="Texture2D" uid="uid://c770b34103qdq" path="res://asserts/buttons/button_word_pick.png" id="7_aq8e4"]
+[ext_resource type="Texture2D" uid="uid://d1eokii8bx2rp" path="res://asserts/buttons/button_word_race.png" id="8_race"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_aq8e4"]
 shader = ExtResource("2_uojgr")
@@ -25,8 +25,8 @@ atlas = ExtResource("4_cuhvu")
 region = Rect2(100, 83, 1343, 763)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_e1f5i"]
-atlas = ExtResource("7_aq8e4")
-region = Rect2(139, 162, 1239, 649)
+atlas = ExtResource("8_race")
+region = Rect2(59, 176, 920, 626)
 
 [node name="GameHub" type="Control" unique_id=849832347]
 layout_mode = 3
@@ -139,12 +139,12 @@ texture_normal = SubResource("AtlasTexture_aq8e4")
 ignore_texture_size = true
 stretch_mode = 5
 
-[node name="WordPicPick" type="Control" parent="MarginContainer/VBoxContainer/GamesPanel/GridContainer" unique_id=1158682749]
+[node name="WordRacePanel" type="Control" parent="MarginContainer/VBoxContainer/GamesPanel/GridContainer" unique_id=2121748846]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="AspectRatioContainer" type="AspectRatioContainer" parent="MarginContainer/VBoxContainer/GamesPanel/GridContainer/WordPicPick" unique_id=1300533687]
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="MarginContainer/VBoxContainer/GamesPanel/GridContainer/WordRacePanel" unique_id=550395117]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -155,7 +155,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 ratio = 1.6
 
-[node name="TextureButton" type="TextureButton" parent="MarginContainer/VBoxContainer/GamesPanel/GridContainer/WordPicPick/AspectRatioContainer" unique_id=1072869221]
+[node name="TextureButton" type="TextureButton" parent="MarginContainer/VBoxContainer/GamesPanel/GridContainer/WordRacePanel/AspectRatioContainer" unique_id=366087648]
 layout_mode = 2
 texture_normal = SubResource("AtlasTexture_e1f5i")
 ignore_texture_size = true
