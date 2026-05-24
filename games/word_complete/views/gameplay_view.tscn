@@ -1,0 +1,218 @@
+[gd_scene format=3]
+
+[ext_resource type="Theme" uid="uid://bplyip1c2qc4t" path="res://themes/word_race.tres" id="1_theme"]
+[ext_resource type="Script" path="res://games/word_complete/views/gameplay_view.gd" id="1_view"]
+[ext_resource type="Texture2D" uid="uid://d1shywtks7n26" path="res://asserts/panels/word_race_word_panel.png" id="3_panel"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_panel"]
+atlas = ExtResource("3_panel")
+
+[node name="WordCompleteGameplay" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_theme")
+script = ExtResource("1_view")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 8
+
+[node name="RoundLabel" type="Label" parent="VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"layout_label"
+text = "第 1/10 题"
+horizontal_alignment = 1
+
+[node name="MeaningLabel" type="Label" parent="VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"section_title"
+text = "中文意思："
+horizontal_alignment = 1
+
+[node name="WordPanel" type="Panel" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/WordPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -367.0
+offset_top = -153.0
+offset_right = 410.0
+offset_bottom = 112.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("AtlasTexture_panel")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="WordLabel" type="Label" parent="VBoxContainer/WordPanel"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_top = 12.0
+offset_right = 1920.0
+offset_bottom = 92.0
+theme_type_variation = &"PanelTitle"
+text = "等待开始..."
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 5.0
+theme_override_constants/separation = 12
+
+[node name="MarginContainerA" type="MarginContainer" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="PlayerAPanel" type="Panel" parent="VBoxContainer/HBoxContainer/MarginContainerA"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"PlayerPanel"
+
+[node name="PlayerAVBox" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/MarginContainerA/PlayerAPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 8
+
+[node name="InfoHBox" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/MarginContainerA/PlayerAPanel/PlayerAVBox"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.2
+
+[node name="PlayerANameLabel" type="Label" parent="VBoxContainer/HBoxContainer/MarginContainerA/PlayerAPanel/PlayerAVBox/InfoHBox"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 10
+theme_type_variation = &"section_title"
+text = "玩家A"
+horizontal_alignment = 1
+
+[node name="PlayerAScoreLabel" type="Label" parent="VBoxContainer/HBoxContainer/MarginContainerA/PlayerAPanel/PlayerAVBox/InfoHBox"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 2
+theme_type_variation = &"section_title"
+text = "得分: 0"
+horizontal_alignment = 1
+
+[node name="PlayerAStatusLabel" type="Label" parent="VBoxContainer/HBoxContainer/MarginContainerA/PlayerAPanel/PlayerAVBox"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"section_title"
+theme_override_font_sizes/font_size = 20
+text = "回答中"
+horizontal_alignment = 1
+
+[node name="LettersMargin" type="MarginContainer" parent="VBoxContainer/HBoxContainer/MarginContainerA/PlayerAPanel/PlayerAVBox"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 16
+
+[node name="PlayerALettersContainer" type="GridContainer" parent="VBoxContainer/HBoxContainer/MarginContainerA/PlayerAPanel/PlayerAVBox/LettersMargin"]
+unique_name_in_owner = true
+layout_mode = 2
+columns = 4
+
+[node name="MarginContainerB" type="MarginContainer" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="PlayerBPanel" type="Panel" parent="VBoxContainer/HBoxContainer/MarginContainerB"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"PlayerPanel"
+
+[node name="PlayerBVBox" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/MarginContainerB/PlayerBPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 8
+
+[node name="InfoHBox" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/MarginContainerB/PlayerBPanel/PlayerBVBox"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.2
+
+[node name="PlayerBNameLabel" type="Label" parent="VBoxContainer/HBoxContainer/MarginContainerB/PlayerBPanel/PlayerBVBox/InfoHBox"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 10
+theme_type_variation = &"section_title"
+text = "玩家B"
+horizontal_alignment = 1
+
+[node name="PlayerBScoreLabel" type="Label" parent="VBoxContainer/HBoxContainer/MarginContainerB/PlayerBPanel/PlayerBVBox/InfoHBox"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 2
+theme_type_variation = &"section_title"
+text = "得分: 0"
+horizontal_alignment = 1
+
+[node name="PlayerBStatusLabel" type="Label" parent="VBoxContainer/HBoxContainer/MarginContainerB/PlayerBPanel/PlayerBVBox"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"section_title"
+theme_override_font_sizes/font_size = 20
+text = "等待"
+horizontal_alignment = 1
+
+[node name="LettersMargin" type="MarginContainer" parent="VBoxContainer/HBoxContainer/MarginContainerB/PlayerBPanel/PlayerBVBox"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 16
+
+[node name="PlayerBLettersContainer" type="GridContainer" parent="VBoxContainer/HBoxContainer/MarginContainerB/PlayerBPanel/PlayerBVBox/LettersMargin"]
+unique_name_in_owner = true
+layout_mode = 2
+columns = 4
+
+[node name="ButtonContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 12
+alignment = 1
+
+[node name="EndGameButton" type="Button" parent="VBoxContainer/ButtonContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "查看结果"
