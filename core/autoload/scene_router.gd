@@ -52,5 +52,8 @@ func _resolve_scene_path(scene_id: String) -> String:
 		"setting_word_race": "res://games/word_race/views/setting_view.tscn",
 		"gameplay_word_race": "res://games/word_race/views/gameplay_view.tscn",
 		"result_word_race": "res://games/word_race/views/result_view.tscn",
+		"setting_word_complete": "res://games/word_complete/views/setting_view.tscn",
+		"gameplay_word_complete": "res://games/word_complete/views/gameplay_view.tscn",
+		"result_word_complete": "res://games/word_complete/views/result_view.tscn",
 	}
 	return mapping.get(scene_id, "res://scenes/game_hub.tscn")
