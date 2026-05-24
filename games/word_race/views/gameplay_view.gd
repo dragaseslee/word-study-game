@@ -12,8 +12,8 @@ var _vm: RaceGameplayVM
 @onready var _player_b_status_label: Label = %PlayerBStatusLabel
 @onready var _player_a_name_label: Label = %PlayerANameLabel
 @onready var _player_b_name_label: Label = %PlayerBNameLabel
-@onready var _player_a_options_container: VBoxContainer = %PlayerAOptionsContainer
-@onready var _player_b_options_container: VBoxContainer = %PlayerBOptionsContainer
+@onready var _player_a_options_container: GridContainer = %PlayerAOptionsContainer
+@onready var _player_b_options_container: GridContainer = %PlayerBOptionsContainer
 @onready var _next_round_button: Button = %NextRoundButton
 @onready var _end_game_button: Button = %EndGameButton
 
@@ -87,7 +87,7 @@ func _render_player_panel(
     score_label: Label,
     status_label: Label,
     name_label: Label,
-    options_container: VBoxContainer
+    options_container: GridContainer
 ) -> void:
     name_label.text = String(player_data.get("name", ""))
     score_label.text = "得分: %d" % int(player_data.get("score", 0))
@@ -103,7 +103,7 @@ func _render_player_panel(
     _render_options(options_container, player_index, options, is_cooldown)
 
 
-func _render_options(container: VBoxContainer, player_index: int, options: Array, is_disabled: bool) -> void:
+func _render_options(container: GridContainer, player_index: int, options: Array, is_disabled: bool) -> void:
     for child in container.get_children():
         child.queue_free()
 

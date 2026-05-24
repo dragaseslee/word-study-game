@@ -28,6 +28,10 @@ region = Rect2(100, 83, 1343, 763)
 atlas = ExtResource("8_race")
 region = Rect2(59, 176, 920, 626)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_g1gae"]
+atlas = ExtResource("8_race")
+region = Rect2(59, 176, 920, 626)
+
 [node name="GameHub" type="Control" unique_id=849832347]
 layout_mode = 3
 anchors_preset = 15
@@ -161,12 +165,12 @@ texture_normal = SubResource("AtlasTexture_e1f5i")
 ignore_texture_size = true
 stretch_mode = 5
 
-[node name="WordCompletePanel" type="Control" parent="MarginContainer/VBoxContainer/GamesPanel/GridContainer"]
+[node name="WordCompletePanel" type="Control" parent="MarginContainer/VBoxContainer/GamesPanel/GridContainer" unique_id=196344044]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="AspectRatioContainer" type="AspectRatioContainer" parent="MarginContainer/VBoxContainer/GamesPanel/GridContainer/WordCompletePanel"]
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="MarginContainer/VBoxContainer/GamesPanel/GridContainer/WordCompletePanel" unique_id=7676648]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -177,7 +181,8 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 ratio = 1.6
 
-[node name="TextureButton" type="TextureButton" parent="MarginContainer/VBoxContainer/GamesPanel/GridContainer/WordCompletePanel/AspectRatioContainer"]
+[node name="TextureButton" type="TextureButton" parent="MarginContainer/VBoxContainer/GamesPanel/GridContainer/WordCompletePanel/AspectRatioContainer" unique_id=2122380971]
 layout_mode = 2
+texture_normal = SubResource("AtlasTexture_g1gae")
 ignore_texture_size = true
 stretch_mode = 5

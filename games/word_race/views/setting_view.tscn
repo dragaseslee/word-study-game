@@ -1,17 +1,42 @@
-[gd_scene format=3]
+[gd_scene format=3 uid="uid://dts8amwsoxld6"]
 
-[ext_resource type="Script" path="res://games/word_race/views/setting_view.gd" id="1_setting"]
+[ext_resource type="Script" uid="uid://bg72s6m32k3ac" path="res://games/word_race/views/setting_view.gd" id="1_setting"]
+[ext_resource type="Theme" uid="uid://bplyip1c2qc4t" path="res://themes/word_race.tres" id="1_w45wa"]
+[ext_resource type="Texture2D" uid="uid://b7775wlgpbtij" path="res://asserts/background/background.png" id="3_rgh6a"]
+[ext_resource type="Theme" uid="uid://ivxxbefsd1km" path="res://themes/witch's_potion.tres" id="4_p0o7o"]
+[ext_resource type="Texture2D" uid="uid://b3fus55lnqgef" path="res://asserts/buttons/upload_files.png" id="6_uc3wp"]
+[ext_resource type="Texture2D" uid="uid://ctakfxeqjilpo" path="res://asserts/someUI.png" id="7_rb8h2"]
 
-[node name="WordRaceSetting" type="Control"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_v8aqu"]
+atlas = ExtResource("7_rb8h2")
+region = Rect2(348, 732, 270, 107)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4k7dv"]
+atlas = ExtResource("7_rb8h2")
+region = Rect2(656, 732, 269, 107)
+
+[node name="WordRaceSetting" type="Control" unique_id=107319187]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_w45wa")
 script = ExtResource("1_setting")
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="BackgroundLayer" type="TextureRect" parent="." unique_id=2008891478]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_rgh6a")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1058867110]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -23,127 +48,217 @@ theme_override_constants/margin_top = 24
 theme_override_constants/margin_right = 24
 theme_override_constants/margin_bottom = 24
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+[node name="PanelContainer" type="MarginContainer" parent="MarginContainer" unique_id=941425951]
+custom_minimum_size = Vector2(1000, 800)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 0
+theme_override_constants/margin_bottom = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer" unique_id=1531057578]
 layout_mode = 2
 theme_override_constants/separation = 16
 
-[node name="TitleLabel" type="Label" parent="MarginContainer/VBoxContainer"]
+[node name="TitleLabel" type="Label" parent="MarginContainer/PanelContainer/VBoxContainer" unique_id=153140724]
 layout_mode = 2
+theme_type_variation = &"PanelTitle"
 text = "单词竞速 - 设置"
 horizontal_alignment = 1
 
-[node name="WordSetRow" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+[node name="WordSetRow" type="HBoxContainer" parent="MarginContainer/PanelContainer/VBoxContainer" unique_id=1543885982]
 layout_mode = 2
+size_flags_vertical = 3
 theme_override_constants/separation = 12
 
-[node name="WordSetOption" type="OptionButton" parent="MarginContainer/VBoxContainer/WordSetRow"]
-unique_name_in_owner = true
+[node name="Label" type="Label" parent="MarginContainer/PanelContainer/VBoxContainer/WordSetRow" unique_id=982245565]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_type_variation = &"section_title"
+text = "选择词表"
 
-[node name="ImportButton" type="Button" parent="MarginContainer/VBoxContainer/WordSetRow"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/VBoxContainer/WordSetRow" unique_id=1450652090]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 3.0
+theme_override_constants/separation = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/PanelContainer/VBoxContainer/WordSetRow/VBoxContainer" unique_id=499572308]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="MarginContainer/PanelContainer/VBoxContainer/WordSetRow/VBoxContainer/HBoxContainer" unique_id=1344617384]
+layout_mode = 2
+size_flags_horizontal = 3
+ratio = 3.5
+
+[node name="WordSetOption" type="OptionButton" parent="MarginContainer/PanelContainer/VBoxContainer/WordSetRow/VBoxContainer/HBoxContainer/AspectRatioContainer" unique_id=1426934055]
 unique_name_in_owner = true
 layout_mode = 2
-text = "导入"
 
-[node name="RoundCountRow" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+[node name="ImportButton" type="TextureButton" parent="MarginContainer/PanelContainer/VBoxContainer/WordSetRow/VBoxContainer/HBoxContainer" unique_id=151603762]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.4
+texture_normal = ExtResource("6_uc3wp")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/PanelContainer/VBoxContainer/WordSetRow/VBoxContainer" unique_id=1840754882]
+layout_mode = 2
+
+[node name="StatusLabel" type="Label" parent="MarginContainer/PanelContainer/VBoxContainer/WordSetRow/VBoxContainer/MarginContainer" unique_id=240353620]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+theme_type_variation = &"section_title"
+theme_override_font_sizes/font_size = 16
+horizontal_alignment = 2
+autowrap_mode = 3
+
+[node name="RoundCountRow" type="HBoxContainer" parent="MarginContainer/PanelContainer/VBoxContainer" unique_id=1290595886]
+layout_mode = 2
+size_flags_vertical = 3
 theme_override_constants/separation = 12
 
-[node name="RoundCountLabel" type="Label" parent="MarginContainer/VBoxContainer/RoundCountRow"]
+[node name="RoundCountLabel" type="Label" parent="MarginContainer/PanelContainer/VBoxContainer/RoundCountRow" unique_id=1516717415]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_type_variation = &"section_title"
 text = "总回合数"
 
-[node name="RoundCountSpinBox" type="SpinBox" parent="MarginContainer/VBoxContainer/RoundCountRow"]
+[node name="RoundCountSpinBox" type="SpinBox" parent="MarginContainer/PanelContainer/VBoxContainer/RoundCountRow" unique_id=1586359093]
 unique_name_in_owner = true
 layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
 min_value = 1.0
 max_value = 50.0
 value = 10.0
 
-[node name="OptionCountRow" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_constants/separation = 12
-
-[node name="OptionCountLabel" type="Label" parent="MarginContainer/VBoxContainer/OptionCountRow"]
+[node name="OptionCountLabel" type="Label" parent="MarginContainer/PanelContainer/VBoxContainer/RoundCountRow" unique_id=877255707]
 layout_mode = 2
 size_flags_horizontal = 3
-text = "选项数量"
+theme_type_variation = &"section_title"
+text = "候选答案"
 
-[node name="OptionCountSpinBox" type="SpinBox" parent="MarginContainer/VBoxContainer/OptionCountRow"]
+[node name="OptionCountSpinBox" type="SpinBox" parent="MarginContainer/PanelContainer/VBoxContainer/RoundCountRow" unique_id=1129251534]
 unique_name_in_owner = true
 layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
 min_value = 2.0
 max_value = 6.0
 value = 3.0
 
-[node name="CooldownRow" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+[node name="PlayerARow" type="HBoxContainer" parent="MarginContainer/PanelContainer/VBoxContainer" unique_id=1457566424]
 layout_mode = 2
+size_flags_vertical = 3
 theme_override_constants/separation = 12
 
-[node name="CooldownLabel" type="Label" parent="MarginContainer/VBoxContainer/CooldownRow"]
+[node name="Label" type="Label" parent="MarginContainer/PanelContainer/VBoxContainer/PlayerARow" unique_id=1069593116]
 layout_mode = 2
 size_flags_horizontal = 3
-text = "答错冷却时间(秒)"
+theme_type_variation = &"section_title"
+text = "玩家名称"
 
-[node name="CooldownSpinBox" type="SpinBox" parent="MarginContainer/VBoxContainer/CooldownRow"]
+[node name="PlayerANameEdit" type="LineEdit" parent="MarginContainer/PanelContainer/VBoxContainer/PlayerARow" unique_id=1751279778]
 unique_name_in_owner = true
-layout_mode = 2
-min_value = 1.0
-max_value = 10.0
-step = 1.0
-value = 5.0
-
-[node name="PlayerARow" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_constants/separation = 12
-
-[node name="PlayerALabel" type="Label" parent="MarginContainer/VBoxContainer/PlayerARow"]
 layout_mode = 2
 size_flags_horizontal = 3
-text = "玩家A"
-
-[node name="PlayerANameEdit" type="LineEdit" parent="MarginContainer/VBoxContainer/PlayerARow"]
-unique_name_in_owner = true
-layout_mode = 2
+size_flags_vertical = 4
 placeholder_text = "玩家A"
+alignment = 1
 
-[node name="PlayerBRow" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_constants/separation = 12
-
-[node name="PlayerBLabel" type="Label" parent="MarginContainer/VBoxContainer/PlayerBRow"]
+[node name="Label2" type="Label" parent="MarginContainer/PanelContainer/VBoxContainer/PlayerARow" unique_id=722492429]
 layout_mode = 2
 size_flags_horizontal = 3
-text = "玩家B"
-
-[node name="PlayerBNameEdit" type="LineEdit" parent="MarginContainer/VBoxContainer/PlayerBRow"]
-unique_name_in_owner = true
-layout_mode = 2
-placeholder_text = "玩家B"
-
-[node name="StatusLabel" type="Label" parent="MarginContainer/VBoxContainer"]
-unique_name_in_owner = true
-layout_mode = 2
+theme_type_variation = &"section_title"
+text = " VS "
 horizontal_alignment = 1
-autowrap_mode = 3
 
-[node name="ActionRow" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+[node name="PlayerBNameEdit" type="LineEdit" parent="MarginContainer/PanelContainer/VBoxContainer/PlayerARow" unique_id=742020087]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+placeholder_text = "玩家B"
+alignment = 1
+
+[node name="ActionSection" type="MarginContainer" parent="." unique_id=1289748736]
+custom_minimum_size = Vector2(0, 170)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -275.5
+offset_top = -170.0
+offset_right = 275.5
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="ActionButtons" type="HBoxContainer" parent="ActionSection" unique_id=1660692341]
 layout_mode = 2
 theme_override_constants/separation = 12
 
-[node name="BackButton" type="Button" parent="MarginContainer/VBoxContainer/ActionRow"]
-unique_name_in_owner = true
+[node name="BackButton" type="TextureButton" parent="ActionSection/ActionButtons" unique_id=1147082592]
 layout_mode = 2
+size_flags_horizontal = 3
+texture_normal = SubResource("AtlasTexture_v8aqu")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="ActionSection/ActionButtons/BackButton" unique_id=1862936665]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("4_p0o7o")
+theme_type_variation = &"layout_label"
 text = "返回"
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="StartButton" type="Button" parent="MarginContainer/VBoxContainer/ActionRow"]
-unique_name_in_owner = true
+[node name="StartButton" type="TextureButton" parent="ActionSection/ActionButtons" unique_id=917587176]
 layout_mode = 2
-disabled = true
-text = "开始游戏"
+size_flags_horizontal = 3
+texture_normal = SubResource("AtlasTexture_4k7dv")
+ignore_texture_size = true
+stretch_mode = 5
 
-[node name="UploadFileDialog" type="FileDialog" parent="."]
+[node name="Label" type="Label" parent="ActionSection/ActionButtons/StartButton" unique_id=1061481208]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("4_p0o7o")
+theme_type_variation = &"layout_label"
+text = "开始"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="UploadFileDialog" type="FileDialog" parent="." unique_id=505080810]
 unique_name_in_owner = true
 title = "导入词表"
