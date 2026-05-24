@@ -160,3 +160,24 @@ layout_mode = 2
 texture_normal = SubResource("AtlasTexture_e1f5i")
 ignore_texture_size = true
 stretch_mode = 5
+
+[node name="WordCompletePanel" type="Control" parent="MarginContainer/VBoxContainer/GamesPanel/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="MarginContainer/VBoxContainer/GamesPanel/GridContainer/WordCompletePanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+ratio = 1.6
+
+[node name="TextureButton" type="TextureButton" parent="MarginContainer/VBoxContainer/GamesPanel/GridContainer/WordCompletePanel/AspectRatioContainer"]
+layout_mode = 2
+ignore_texture_size = true
+stretch_mode = 5

@@ -6,6 +6,8 @@ extends Control
 @onready var word_match_button: TextureButton = $"MarginContainer/VBoxContainer/GamesPanel/GridContainer/WordMatchPanel/AspectRatioContainer/TextureButton"
 @onready var word_race_panel: Control = $"MarginContainer/VBoxContainer/GamesPanel/GridContainer/WordRacePanel"
 @onready var word_race_button: TextureButton = $"MarginContainer/VBoxContainer/GamesPanel/GridContainer/WordRacePanel/AspectRatioContainer/TextureButton"
+@onready var word_complete_panel: Control = $"MarginContainer/VBoxContainer/GamesPanel/GridContainer/WordCompletePanel"
+@onready var word_complete_button: TextureButton = $"MarginContainer/VBoxContainer/GamesPanel/GridContainer/WordCompletePanel/AspectRatioContainer/TextureButton"
 
 const CARD_NORMAL_SCALE := Vector2.ONE
 const CARD_HOVER_SCALE := Vector2(1.04, 1.04)
@@ -40,6 +42,14 @@ func _ready() -> void:
             _on_word_race_panel_pressed()
     )
     word_race_button.pressed.connect(_on_word_race_panel_pressed)
+    _setup_game_card(word_complete_panel, word_complete_button)
+    word_complete_panel.gui_input.connect(func(event: InputEvent) -> void:
+        if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
+            if _is_mouse_over(word_complete_button):
+                return
+            _on_word_complete_panel_pressed()
+    )
+    word_complete_button.pressed.connect(_on_word_complete_panel_pressed)
 
 
 func _on_witchs_potion_panel_pressed() -> void:
@@ -52,6 +62,10 @@ func _on_word_match_panel_pressed() -> void:
 
 func _on_word_race_panel_pressed() -> void:
     SceneRouter.goto_game_setting("word_race")
+
+
+func _on_word_complete_panel_pressed() -> void:
+    SceneRouter.goto_game_setting("word_complete")
 
 
 func _on_witchs_potion_panel_input(event: InputEvent) -> void:
